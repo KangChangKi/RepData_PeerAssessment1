@@ -83,6 +83,8 @@ ggplot(total, aes(date, sum_steps)) +
 
 ### 2. Calculate and report the mean and median total number of steps taken per day
 
+The mean quantity and median quantity are the follwoings:
+
 
 ```r
 mean_total <- mean(total$sum_steps, na.rm = TRUE)
@@ -130,6 +132,8 @@ filter(interval, mean_steps == max(interval$mean_steps))
 ## 1      835   206.1698
 ```
 
+Such that the 5-minute interval is `835` .
+
 ## Imputing missing values
 
 ### 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
@@ -159,7 +163,9 @@ d %>% filter(is.na(steps)) %>% count()
 
 ### 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
-I will use average 5-minute intervals to fill NA values in the data.
+**I will use average 5-minute intervals to fill NA values in the data.**
+
+To fill NAs, I calculated the average steps per interval, and then, join them with the original dataset by interval, and finally, if there is any NA in the orignal data, each NA was replaced by the average value.
 
 ### 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 

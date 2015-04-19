@@ -126,6 +126,7 @@ ggplot(total, aes(date, sum_steps)) +
 </div>
 <div id="calculate-and-report-the-mean-and-median-total-number-of-steps-taken-per-day" class="section level3">
 <h3>2. Calculate and report the mean and median total number of steps taken per day</h3>
+<p>The mean quantity and median quantity are the follwoings:</p>
 <pre class="r"><code>mean_total &lt;- mean(total$sum_steps, na.rm = TRUE)
 mean_total</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
@@ -151,6 +152,7 @@ ggplot(interval, aes(interval, mean_steps)) + geom_line()</code></pre>
 ## 
 ##   interval mean_steps
 ## 1      835   206.1698</code></pre>
+<p>Such that the 5-minute interval is <code>835</code> .</p>
 </div>
 </div>
 <div id="imputing-missing-values" class="section level2">
@@ -170,7 +172,8 @@ ggplot(interval, aes(interval, mean_steps)) + geom_line()</code></pre>
 </div>
 <div id="devise-a-strategy-for-filling-in-all-of-the-missing-values-in-the-dataset.-the-strategy-does-not-need-to-be-sophisticated.-for-example-you-could-use-the-meanmedian-for-that-day-or-the-mean-for-that-5-minute-interval-etc." class="section level3">
 <h3>2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.</h3>
-<p>I will use average 5-minute intervals to fill NA values in the data.</p>
+<p><strong>I will use average 5-minute intervals to fill NA values in the data.</strong></p>
+<p>To fill NAs, I calculated the average steps per interval, and then, join them with the original dataset by interval, and finally, if there is any NA in the orignal data, each NA was replaced by the average value.</p>
 </div>
 <div id="create-a-new-dataset-that-is-equal-to-the-original-dataset-but-with-the-missing-data-filled-in." class="section level3">
 <h3>3. Create a new dataset that is equal to the original dataset but with the missing data filled in.</h3>
