@@ -10,6 +10,8 @@ output:
 ### 1. Load the data (i.e. read.csv())
 
 ```{r, echo=TRUE}
+library(knitr)
+opts_chunk$set(fig.path="figure/")
 library(dplyr)
 library(lubridate)
 library(ggplot2)

@@ -6,6 +6,8 @@
 
 
 ```r
+library(knitr)
+opts_chunk$set(fig.path="figure/")
 library(dplyr)
 ```
 
@@ -77,7 +79,7 @@ ggplot(total, aes(date, sum_steps)) +
 ## (position_stack).
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![](figure/unnamed-chunk-3-1.png) 
 
 ### 2. Calculate and report the mean and median total number of steps taken per day
 
@@ -112,7 +114,7 @@ interval <- d %>%
 ggplot(interval, aes(interval, mean_steps)) + geom_line()
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![](figure/unnamed-chunk-5-1.png) 
 
 ### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -222,7 +224,7 @@ ggplot(total2, aes(date, sum_steps)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
+![](figure/unnamed-chunk-9-1.png) 
 
 ```r
 mean_total2 <- mean(total2$sum_steps, na.rm = TRUE)
@@ -295,4 +297,4 @@ xyplot(interval2$mean_steps ~ interval2$interval | interval2$kind,
        xlab = "Interval", ylab = "Number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
+![](figure/unnamed-chunk-11-1.png) 
