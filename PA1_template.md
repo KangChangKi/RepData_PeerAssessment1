@@ -216,45 +216,13 @@ total2 <- filled %>%
   group_by(date) %>%
   summarise(sum_steps = sum(new_steps))
 
-# before filling
-ggplot(total, aes(date, sum_steps)) +
-  geom_bar(stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-```
-
-```
-## Warning in loop_apply(n, do.ply): Removed 8 rows containing missing values
-## (position_stack).
-```
-
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
-
-```r
-mean_total <- mean(total$sum_steps, na.rm = TRUE)
-mean_total
-```
-
-```
-## [1] 10766.19
-```
-
-```r
-median_total <- median(total$sum_steps, na.rm = TRUE)
-median_total
-```
-
-```
-## [1] 10765
-```
-
-```r
 # after filling
 ggplot(total2, aes(date, sum_steps)) +
   geom_bar(stat = "identity") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-2.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
 
 ```r
 mean_total2 <- mean(total2$sum_steps, na.rm = TRUE)
@@ -328,4 +296,3 @@ xyplot(interval2$mean_steps ~ interval2$interval | interval2$kind,
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
-
