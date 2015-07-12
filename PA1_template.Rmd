@@ -38,9 +38,9 @@ total <- d %>%
   group_by(date) %>%
   summarise(sum_steps = sum(steps))
 # total <- mutate(total, m = as.numeric(substr(date, 6, 7)), d = as.numeric(substr(date, 9, 10)))
-ggplot(total, aes(date, sum_steps)) +
-  geom_bar(stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(total, aes(sum_steps)) +
+  geom_histogram(binwidth = 1000) +
+  xlab("steps (binwidth = 1000)")
 ```
 
 ### 2. Calculate and report the mean and median total number of steps taken per day
@@ -110,9 +110,9 @@ total2 <- filled %>%
   summarise(sum_steps = sum(new_steps))
 
 # after filling
-ggplot(total2, aes(date, sum_steps)) +
-  geom_bar(stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(total2, aes(sum_steps)) +
+  geom_histogram(binwidth = 1000) +
+  xlab("steps (binwidth = 1000)")
 
 mean_total2 <- mean(total2$sum_steps, na.rm = TRUE)
 mean_total2

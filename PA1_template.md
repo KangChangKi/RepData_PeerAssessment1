@@ -15,9 +15,9 @@ library(dplyr)
 ## 
 ## Attaching package: 'dplyr'
 ## 
-## The following object is masked from 'package:stats':
+## The following objects are masked from 'package:stats':
 ## 
-##     filter
+##     filter, lag
 ## 
 ## The following objects are masked from 'package:base':
 ## 
@@ -69,14 +69,9 @@ total <- d %>%
   group_by(date) %>%
   summarise(sum_steps = sum(steps))
 # total <- mutate(total, m = as.numeric(substr(date, 6, 7)), d = as.numeric(substr(date, 9, 10)))
-ggplot(total, aes(date, sum_steps)) +
-  geom_bar(stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-```
-
-```
-## Warning in loop_apply(n, do.ply): Removed 8 rows containing missing values
-## (position_stack).
+ggplot(total, aes(sum_steps)) +
+  geom_histogram(binwidth = 1000) +
+  xlab("steps (binwidth = 1000)")
 ```
 
 ![](figure/unnamed-chunk-3-1.png) 
@@ -225,9 +220,9 @@ total2 <- filled %>%
   summarise(sum_steps = sum(new_steps))
 
 # after filling
-ggplot(total2, aes(date, sum_steps)) +
-  geom_bar(stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(total2, aes(sum_steps)) +
+  geom_histogram(binwidth = 1000) +
+  xlab("steps (binwidth = 1000)")
 ```
 
 ![](figure/unnamed-chunk-9-1.png) 
